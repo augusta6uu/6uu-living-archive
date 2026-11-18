@@ -168,56 +168,40 @@
     {
       "year": "2026.01",
       "title": "GYROKINESIS® Pre-training Course",
-      "team": "竹北／聆 Ling Listen Studio",
-      "status": "unconfirmed"
+      "status": "unconfirmed",
+      "team": "竹北／聆 Ling Listen Studio"
     },
     {
       "year": "2026.05",
       "title": "GYROKINESIS® Foundation Course",
-      "team": "臺東／臺灣身心教育學會",
-      "status": "unconfirmed"
+      "status": "unconfirmed",
+      "team": "臺東／臺灣身心教育學會"
     },
     {
       "year": "2026.12",
       "title": "GYROKINESIS® Supervised Apprentice Review Course",
-      "team": "臺東／臺灣身心教育學會",
-      "status": "planned"
+      "status": "planned",
+      "team": "臺東／臺灣身心教育學會"
     },
     {
       "year": "2027.02",
       "title": "GYROTONIC® Pre-training Course",
-      "team": "香港 Quarry Bay／O:RIN（原心身心整合工作室）",
-      "status": "planned"
+      "status": "planned",
+      "team": "香港 Quarry Bay／O:RIN（原心身心整合工作室）"
     }
   ],
   "other": [
     {
-      "year": "2022.07–2023.08",
-      "title": "星苑 hoshi table、栩栩 omakase",
-      "role": "外場服務生"
-    },
-    {
-      "year": "2019.11–2020.11",
-      "title": "國立臺北藝術大學系辦",
-      "role": "工讀生"
-    },
-    {
-      "year": "2018–2023",
-      "title": "私人居家清潔服務"
-    },
-    {
-      "year": "2017–2018",
-      "title": "檸檬家事服務",
+      "title": "居家清潔與家事服務＿檸檬家事服務、私人居家管理",
       "role": "居家清潔人員"
     },
     {
-      "year": "2015.12–2016.06",
-      "title": "國立中山大學註冊組",
+      "title": "行政辦公室工讀生＿國立中山大學、國立台北藝術大學",
       "role": "工讀生"
     },
     {
       "year": "2014.11–2015.11",
-      "title": "高雄市文化局演藝場館",
+      "title": "演藝中心前台人員＿高雄市文化局至德堂、至善廳、大東文化藝術中心",
       "role": "前台服務人員（計時點工）"
     }
   ]
