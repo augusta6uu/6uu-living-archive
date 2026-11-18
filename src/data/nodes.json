@@ -1,0 +1,111 @@
+[
+  {
+    "id": "about",
+    "label": "About",
+    "category": "關於",
+    "targetUrl": "/about/",
+    "initialPosition": [
+      25,
+      22
+    ],
+    "visualWeight": 0.9,
+    "relatedNodeIds": [
+      "works",
+      "body",
+      "contact"
+    ],
+    "shortDescription": "劉穎蓉 / Augusta 的背景與生命時間軸。"
+  },
+  {
+    "id": "works",
+    "label": "Works",
+    "category": "創作",
+    "targetUrl": "/works/",
+    "initialPosition": [
+      70,
+      18
+    ],
+    "visualWeight": 1.25,
+    "relatedNodeIds": [
+      "film",
+      "body"
+    ],
+    "shortDescription": "劇場演出、跨域創作與製作協作。"
+  },
+  {
+    "id": "body",
+    "label": "Body",
+    "category": "身體",
+    "targetUrl": "/body/",
+    "initialPosition": [
+      43,
+      45
+    ],
+    "visualWeight": 1.5,
+    "relatedNodeIds": [
+      "journeys",
+      "journal",
+      "film"
+    ],
+    "shortDescription": "動作練習、身體教學與感知研究。"
+  },
+  {
+    "id": "film",
+    "label": "Film",
+    "category": "影像",
+    "targetUrl": "/works/film/",
+    "initialPosition": [
+      79,
+      50
+    ],
+    "visualWeight": 1.05,
+    "relatedNodeIds": [
+      "journeys",
+      "journal"
+    ],
+    "shortDescription": "紀錄片花與影像工作，從創作檔案探入。"
+  },
+  {
+    "id": "journeys",
+    "label": "Journeys",
+    "category": "旅程",
+    "targetUrl": "/journeys/",
+    "initialPosition": [
+      20,
+      68
+    ],
+    "visualWeight": 1.2,
+    "relatedNodeIds": [
+      "journal"
+    ],
+    "shortDescription": "澳洲、紐西蘭、日本與 Camino 朝聖之路。"
+  },
+  {
+    "id": "journal",
+    "label": "Journal",
+    "category": "手記",
+    "targetUrl": "/journal/",
+    "initialPosition": [
+      55,
+      79
+    ],
+    "visualWeight": 1.15,
+    "relatedNodeIds": [
+      "contact"
+    ],
+    "shortDescription": "日常、家事勞動、攝影與返鄉書寫。"
+  },
+  {
+    "id": "contact",
+    "label": "Contact",
+    "category": "聯絡",
+    "targetUrl": "/contact/",
+    "initialPosition": [
+      82,
+      84
+    ],
+    "visualWeight": 0.75,
+    "relatedNodeIds": [],
+    "shortDescription": "聯絡方式、合作方向與履歷下載。"
+  }
+]

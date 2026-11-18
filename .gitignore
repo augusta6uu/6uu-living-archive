@@ -1,0 +1,7 @@
+node_modules/
+.pnpm-store/
+dist/
+.ssg/
+.env.local
+.env.*.local
+/6uu-living-archive.zip

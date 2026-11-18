@@ -1,0 +1,71 @@
+[
+  {
+    "id": "australia",
+    "slug": "australia",
+    "title": "澳洲打工度假",
+    "type": "journeys",
+    "excerpt": "以打工度假在澳洲生活與工作的旅程。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "eight-counts",
+      "home-and-labor"
+    ],
+    "status": "published",
+    "featured": false,
+    "subtitle": "Australia / Working Holiday",
+    "place": "澳洲"
+  },
+  {
+    "id": "new-zealand",
+    "slug": "new-zealand",
+    "title": "紐西蘭獨旅",
+    "type": "journeys",
+    "excerpt": "一段在紐西蘭獨自旅行的經驗。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [],
+    "status": "published",
+    "featured": false,
+    "subtitle": "New Zealand / Solo Journey",
+    "place": "紐西蘭"
+  },
+  {
+    "id": "japan",
+    "slug": "japan",
+    "title": "日本漫遊",
+    "type": "journeys",
+    "excerpt": "日本旅行的影像與手記入口。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [],
+    "status": "published",
+    "featured": false,
+    "subtitle": "Japan / Wandering",
+    "place": "日本"
+  },
+  {
+    "id": "camino",
+    "slug": "camino",
+    "title": "朝聖之路",
+    "type": "journeys",
+    "excerpt": "Camino de Santiago 徒步朝聖的旅程入口。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "body-notes"
+    ],
+    "status": "published",
+    "featured": false,
+    "subtitle": "Camino / Walking to Santiago",
+    "place": null
+  }
+]

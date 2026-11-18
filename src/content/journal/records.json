@@ -1,0 +1,59 @@
+[
+  {
+    "id": "home-and-labor",
+    "slug": "home-and-labor",
+    "title": "家與勞動",
+    "type": "journal",
+    "excerpt": "居家清潔工作與生活觀察的主題索引。",
+    "body": [],
+    "tags": [
+      "家事清潔",
+      "日常"
+    ],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "australia"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "labor",
+    "index": true
+  },
+  {
+    "id": "returning-home",
+    "slug": "returning-home",
+    "title": "返鄉生活",
+    "type": "journal",
+    "excerpt": "返鄉生活、攝影與個人書寫的主題索引。",
+    "body": [],
+    "tags": [
+      "返鄉",
+      "日常"
+    ],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "eight-counts"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "home",
+    "index": true
+  },
+  {
+    "id": "journal-draft",
+    "slug": "journal-draft",
+    "title": "手記草稿模板",
+    "type": "journal",
+    "excerpt": "",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [],
+    "status": "draft",
+    "featured": false,
+    "category": "reflection"
+  }
+]

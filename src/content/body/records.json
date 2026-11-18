@@ -1,0 +1,78 @@
+[
+  {
+    "id": "gyrokinesis",
+    "slug": "gyrokinesis",
+    "title": "GYROKINESIS® 嬋柔",
+    "type": "body",
+    "excerpt": "從呼吸與脊椎動作出發的身體實踐。此頁記錄培訓課程與進度。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "eight-counts",
+      "body-notes"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "practice"
+  },
+  {
+    "id": "creative-movement",
+    "slug": "creative-movement",
+    "title": "創造性肢體開發",
+    "type": "body",
+    "excerpt": "在「肢體開發與表達」課程帶領學生探索動作與表達。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "autumn-movement"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "teaching",
+    "date": "2017",
+    "role": "課程講師",
+    "team": "新北市碧華國小藝術計畫"
+  },
+  {
+    "id": "autumn-movement",
+    "slug": "autumn-movement",
+    "title": "秋季身體漫遊",
+    "type": "body",
+    "excerpt": "漫境文化「秋季身體漫遊」系列課程。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "small-town-dance"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "teaching",
+    "date": "2025",
+    "role": "課程設計／帶領講師",
+    "team": "漫境文化"
+  },
+  {
+    "id": "body-notes",
+    "slug": "body-notes",
+    "title": "感知與動作筆記",
+    "type": "body",
+    "excerpt": "收錄身體教學反思、舞蹈與身體理論、身心學實踐及觀察的入口。",
+    "body": [],
+    "tags": [],
+    "gallery": [],
+    "videoUrls": [],
+    "relatedIds": [
+      "gyrokinesis",
+      "camino"
+    ],
+    "status": "published",
+    "featured": false,
+    "category": "research"
+  }
+]

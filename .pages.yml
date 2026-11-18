@@ -1,0 +1,391 @@
+# Pages CMS stores edits in the original JSON files.
+media:
+  - name: photos
+    label: 照片管理
+    input: public/images
+    output: images
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, gif, avif]
+
+settings:
+  content:
+    # Protect the timeline, training and résumé data in the site object.
+    # For top-level arrays the CMS rewrites each row from the fields below.
+    merge: true
+
+components:
+  title: { type: string, label: 標題, required: true }
+  id:
+    type: string
+    label: 內容代號（舊資料）
+    readonly: true
+    description: 舊資料保留這個代號。新增時留空，網站以網址短名作為代號。
+  slug:
+    type: string
+    label: 網址短名
+    required: true
+    description: 請用全站未曾使用的小寫英文、數字和連字號，例如 spring-rehearsal。已公開的短名請保留。
+    pattern:
+      regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+      message: 請輸入小寫英文或數字，單字之間可以用連字號。
+  subtitle: { type: string, label: 副標題 }
+  date:
+    type: string
+    label: 日期
+    description: 可填年、年月或完整日期，例如 2025、2025-12 或 2025-12-06。
+  year: { type: string, label: 年份（日期留空時使用） }
+  excerpt: { type: text, label: 摘要 }
+  body:
+    type: text
+    label: 內文段落
+    description: 按新增加入一段，依畫面順序呈現。
+    list: true
+  videoUrls:
+    type: string
+    label: YouTube／Vimeo 影片網址
+    description: 貼上影片頁「分享」取得的完整網址，每列一支影片。
+    list: true
+    pattern:
+      regex: '^https://(?:(?:(?:www\.|m\.)?youtube\.com|youtu\.be|www\.youtube-nocookie\.com)|(?:(?:www\.|player\.)?vimeo\.com))/\S+$'
+      message: 請貼上以 https:// 開頭的 YouTube 或 Vimeo 影片網址。
+  tags: { type: string, label: 標籤, list: true }
+  relatedIds:
+    type: string
+    label: 相關內容代號
+    description: 從要連結的項目複製「內容代號（舊資料）」。若是空的，請複製該項目的「網址短名」。每列一個。
+    list: true
+  status:
+    type: select
+    label: 發布狀態
+    required: true
+    default: draft
+    options:
+      values:
+        - { name: draft, label: 草稿 }
+        - { name: published, label: 公開 }
+  featured: { type: boolean, label: 首頁精選（創作作品適用）, default: false }
+  updatedAt: { type: string, label: 最後更新日期（選填） }
+  photo:
+    type: object
+    fields:
+      - name: src
+        type: image
+        label: 選擇或上傳照片
+        required: true
+        options:
+          media: photos
+      - name: alt
+        type: string
+        label: 替代文字
+        description: 簡短描述畫面內容，讓看不到照片的人也能理解。
+        required: true
+      - { name: caption, type: string, label: 圖片說明 }
+      - { name: credit, type: string, label: 攝影者 }
+      - { name: width, type: number, label: 寬度（像素，選填）, options: { min: 1 } }
+      - { name: height, type: number, label: 高度（像素，選填）, options: { min: 1 } }
+      - name: variants
+        type: object
+        label: 響應式圖片版本
+        hidden: true
+        list: true
+        fields:
+          - { name: src, type: string }
+          - { name: width, type: number, options: { min: 1 } }
+  externalLinks:
+    type: object
+    label: 外部連結
+    list: true
+    fields:
+      - { name: label, type: string, label: 連結名稱, required: true }
+      - { name: url, type: string, label: 完整網址, required: true }
+
+content:
+  - name: site
+    label: 首頁與個人介紹
+    type: file
+    path: src/data/site.json
+    format: json
+    operations: &protect_file { delete: false, rename: false }
+    fields:
+      - name: home
+        label: 首頁文字
+        type: object
+        required: true
+        fields:
+          - { name: title, type: string, label: 首頁大標題, required: true }
+          - { name: tagline, type: string, label: 副標題, required: true }
+          - { name: intro, type: text, label: 首頁介紹, required: true }
+          - { name: hint, type: string, label: 節點探索提示, required: true }
+      - name: profile
+        label: 個人介紹與聯絡
+        type: object
+        required: true
+        fields:
+          - { name: name, type: string, label: 中文姓名, required: true }
+          - { name: english, type: string, label: 英文姓名, required: true }
+          - { name: intro, type: text, label: 個人介紹, required: true }
+          - { name: statement, type: text, label: 創作與生活理念, required: true }
+          - { name: portrait, component: photo, label: 個人肖像, required: true }
+          - { name: email, type: string, label: 聯絡信箱, required: true }
+          - { name: education, type: string, label: 學習背景, required: true, list: true }
+          - { name: collaborations, type: string, label: 合作方向, required: true, list: true }
+          - { name: socials, component: externalLinks, label: 社群與影音連結 }
+
+  - name: works
+    label: 創作作品
+    type: file
+    path: src/content/works/records.json
+    format: json
+    list: true
+    operations: *protect_file
+    fields:
+      - name: type
+        type: string
+        hidden: true
+        required: true
+        default: works
+      - name: title
+        component: title
+      - name: id
+        component: id
+      - name: slug
+        component: slug
+      - name: subtitle
+        component: subtitle
+      - name: date
+        component: date
+      - name: year
+        component: year
+      - name: excerpt
+        component: excerpt
+      - name: body
+        component: body
+      - name: coverImage
+        component: photo
+        label: 封面照片
+      - name: gallery
+        component: photo
+        label: 照片集
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.alt}"
+      - name: videoUrls
+        component: videoUrls
+      - name: tags
+        component: tags
+      - name: relatedIds
+        component: relatedIds
+      - name: status
+        component: status
+      - name: featured
+        component: featured
+      - name: updatedAt
+        component: updatedAt
+      - name: category
+        label: 內容類型
+        type: select
+        options:
+          values:
+            - { name: performance, label: 表演 }
+            - { name: interdisciplinary, label: 跨域創作 }
+            - { name: film, label: 影像紀錄 }
+            - { name: production, label: 製作與協作 }
+      - { name: role, label: 個人角色, type: string }
+      - { name: team, label: 合作團隊, type: string }
+      - { name: venue, label: 演出或展出場合, type: string }
+      - { name: place, label: 地點, type: string }
+      - { name: observation, label: 個人參與觀察, type: text }
+      - { name: externalLinks, component: externalLinks }
+  - name: body
+    label: 身體實踐
+    type: file
+    path: src/content/body/records.json
+    format: json
+    list: true
+    operations: *protect_file
+    fields:
+      - name: type
+        type: string
+        hidden: true
+        required: true
+        default: body
+      - name: title
+        component: title
+      - name: id
+        component: id
+      - name: slug
+        component: slug
+      - name: subtitle
+        component: subtitle
+      - name: date
+        component: date
+      - name: year
+        component: year
+      - name: excerpt
+        component: excerpt
+      - name: body
+        component: body
+      - name: coverImage
+        component: photo
+        label: 封面照片
+      - name: gallery
+        component: photo
+        label: 照片集
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.alt}"
+      - name: videoUrls
+        component: videoUrls
+      - name: tags
+        component: tags
+      - name: relatedIds
+        component: relatedIds
+      - name: status
+        component: status
+      - name: featured
+        component: featured
+      - name: updatedAt
+        component: updatedAt
+      - name: category
+        label: 內容類型
+        type: select
+        options:
+          values:
+            - { name: practice, label: 身體實踐 }
+            - { name: teaching, label: 教學 }
+            - { name: research, label: 研究 }
+      - { name: role, label: 個人角色, type: string }
+      - { name: team, label: 合作團隊, type: string }
+      - { name: venue, label: 活動場合, type: string }
+      - { name: place, label: 地點, type: string }
+      - { name: observation, label: 觀察, type: text }
+      - { name: externalLinks, component: externalLinks }
+  - name: journeys
+    label: 旅行紀事
+    type: file
+    path: src/content/journeys/records.json
+    format: json
+    list: true
+    operations: *protect_file
+    fields:
+      - name: type
+        type: string
+        hidden: true
+        required: true
+        default: journeys
+      - name: title
+        component: title
+      - name: id
+        component: id
+      - name: slug
+        component: slug
+      - name: subtitle
+        component: subtitle
+      - name: date
+        component: date
+      - name: year
+        component: year
+      - name: excerpt
+        component: excerpt
+      - name: body
+        component: body
+      - name: coverImage
+        component: photo
+        label: 封面照片
+      - name: gallery
+        component: photo
+        label: 照片集
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.alt}"
+      - name: videoUrls
+        component: videoUrls
+      - name: tags
+        component: tags
+      - name: relatedIds
+        component: relatedIds
+      - name: status
+        component: status
+      - name: featured
+        component: featured
+      - name: updatedAt
+        component: updatedAt
+      - { name: place, label: 地點, type: string }
+      - { name: routeUrl, label: 地圖或路線網址, type: string }
+      - { name: role, label: 個人角色, type: string }
+      - { name: team, label: 同行或合作團隊, type: string }
+      - { name: venue, label: 活動場合, type: string }
+      - { name: observation, label: 旅程觀察, type: text }
+      - { name: externalLinks, component: externalLinks }
+  - name: journal
+    label: 生活手記
+    type: file
+    path: src/content/journal/records.json
+    format: json
+    list: true
+    operations: *protect_file
+    fields:
+      - name: type
+        type: string
+        hidden: true
+        required: true
+        default: journal
+      - name: title
+        component: title
+      - name: id
+        component: id
+      - name: slug
+        component: slug
+      - name: subtitle
+        component: subtitle
+      - name: date
+        component: date
+      - name: year
+        component: year
+      - name: excerpt
+        component: excerpt
+      - name: body
+        component: body
+      - name: coverImage
+        component: photo
+        label: 封面照片
+      - name: gallery
+        component: photo
+        label: 照片集
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.alt}"
+      - name: videoUrls
+        component: videoUrls
+      - name: tags
+        component: tags
+      - name: relatedIds
+        component: relatedIds
+      - name: status
+        component: status
+      - name: featured
+        component: featured
+      - name: updatedAt
+        component: updatedAt
+      - name: category
+        label: 內容類型
+        type: select
+        options:
+          values:
+            - { name: everyday, label: 日常 }
+            - { name: labor, label: 家與勞動 }
+            - { name: home, label: 返鄉 }
+            - { name: photography, label: 攝影 }
+            - { name: body-notes, label: 身體筆記 }
+            - { name: reflection, label: 觀察與思考 }
+      - { name: role, label: 個人角色, type: string }
+      - { name: team, label: 合作團隊, type: string }
+      - { name: venue, label: 活動場合, type: string }
+      - { name: place, label: 地點, type: string }
+      - { name: observation, label: 觀察, type: text }
+      - { name: externalLinks, component: externalLinks }
+      - { name: index, type: boolean, hidden: true }
