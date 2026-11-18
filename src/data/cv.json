@@ -24,7 +24,10 @@
       "recordId": "small-town-dance"
     },
     {
-      "recordId": "lohengrin"
+      "year": "2025",
+      "title": "《羅恩格林》",
+      "team": "衛武營國家藝術文化中心",
+      "role": "行政助理"
     },
     {
       "recordId": "queering-together"
@@ -57,7 +60,11 @@
       "recordId": "mediating-object"
     },
     {
-      "recordId": "monster"
+      "year": "2020",
+      "title": "《怪物》",
+      "team": "蕭景馨",
+      "venue": "北藝大劇創所期末呈現",
+      "role": "肢體設計"
     },
     {
       "recordId": "green-t"
@@ -72,7 +79,11 @@
       "recordId": "us"
     },
     {
-      "recordId": "winding-island"
+      "year": "2019",
+      "title": "《彎彎島》",
+      "team": "野我劇場",
+      "venue": "艋舺國際舞蹈節",
+      "role": "編舞／舞者"
     },
     {
       "recordId": "rootless-flower"

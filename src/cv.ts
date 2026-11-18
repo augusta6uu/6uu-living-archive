@@ -73,7 +73,10 @@ export function resolveCv(cv: CvData, records: ArchiveRecord[]) {
       }
 
       const entry = byId.get(id)
-      if (!entry) throw new Error(location + '找不到創作作品或身體實踐代號：' + id)
+      if (!entry) {
+        console.warn(location + '找不到創作作品或身體實踐代號：' + id)
+        return row.title?.trim() ? [formatCvRow(row)] : []
+      }
       if (linked.has(id)) throw new Error(location + '重複引用內容代號：' + id)
       linked.add(id)
       if (entry.status !== 'published') return []
