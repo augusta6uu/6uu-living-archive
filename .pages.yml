@@ -9,7 +9,7 @@ media:
 
 settings:
   content:
-    # Protect the timeline, training and résumé data in the site object.
+    # Protect the timeline and output path in the site object.
     # For top-level arrays the CMS rewrites each row from the fields below.
     merge: true
 
@@ -98,6 +98,51 @@ components:
     fields:
       - { name: label, type: string, label: 連結名稱, required: true }
       - { name: url, type: string, label: 完整網址, required: true }
+  cvManual:
+    type: object
+    fields:
+      - &cv_year { name: year, type: string, label: 年份或期間 }
+      - { name: title, type: string, label: 作品／機構／課程名稱, required: true }
+      - &cv_team { name: team, type: string, label: 合作團隊或主辦單位 }
+      - &cv_venue { name: venue, type: string, label: 場合或地點 }
+      - &cv_role { name: role, type: string, label: 擔任角色 }
+      - &cv_notes { name: notes, type: text, label: 補充說明 }
+  cvEntry:
+    type: object
+    fields:
+      - name: recordId
+        type: string
+        label: 引用既有作品或教學的內容代號
+        description: 可從「創作作品」或「身體實踐」複製內容代號，代號空白時複製網址短名。單獨新增履歷經歷時，此欄留空。
+      - *cv_year
+      - name: title
+        type: string
+        label: 作品或機構名稱
+        description: 自行新增的經歷請填名稱。引用既有紀錄時，其餘欄位可留空，會自動讀取原紀錄。填寫的值只會覆蓋履歷上的顯示。
+      - *cv_team
+      - *cv_venue
+      - *cv_role
+      - *cv_notes
+  cvTraining:
+    type: object
+    fields:
+      - *cv_year
+      - { name: title, type: string, label: 課程或證照名稱, required: true }
+      - name: status
+        type: select
+        label: 培訓或證照狀態
+        required: true
+        default: planned
+        options:
+          values:
+            - { name: planned, label: 規劃中 }
+            - { name: unconfirmed, label: 履歷載列培訓（結訓待確認） }
+            - { name: completed, label: 已完成培訓 }
+            - { name: certified, label: 正式取得證照 }
+      - *cv_team
+      - *cv_venue
+      - *cv_role
+      - *cv_notes
 
 content:
   - name: site
@@ -127,9 +172,34 @@ content:
           - { name: statement, type: text, label: 創作與生活理念, required: true }
           - { name: portrait, component: photo, label: 個人肖像, required: true }
           - { name: email, type: string, label: 聯絡信箱, required: true }
-          - { name: education, type: string, label: 學習背景, required: true, list: true }
           - { name: collaborations, type: string, label: 合作方向, required: true, list: true }
           - { name: socials, component: externalLinks, label: 社群與影音連結 }
+
+  - name: cv
+    label: 完整經歷履歷 CV
+    type: file
+    path: src/data/cv.json
+    format: json
+    operations: *protect_file
+    fields:
+      - name: education
+        label: 學歷
+        component: cvManual
+        list: &cv_list
+          collapsible:
+            collapsed: true
+            summary: "{fields.year} {fields.title}"
+      - name: theatre
+        label: 劇場與跨域創作
+        component: cvEntry
+        list: &cv_linked_list
+          collapsible:
+            collapsed: true
+            summary: "{fields.title} {fields.recordId}"
+      - { name: teaching, label: 教育與教學, component: cvEntry, list: *cv_linked_list }
+      - { name: film, label: 影視相關, component: cvEntry, list: *cv_linked_list }
+      - { name: training, label: 嬋柔培訓, component: cvTraining, list: *cv_list }
+      - { name: other, label: 其他工作經驗, component: cvEntry, list: *cv_linked_list }
 
   - name: works
     label: 創作作品

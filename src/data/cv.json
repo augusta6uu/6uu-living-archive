@@ -1,0 +1,224 @@
+{
+  "education": [
+    {
+      "title": "國立臺北藝術大學舞蹈研究所（文化研究與評論）"
+    },
+    {
+      "title": "國立中山大學劇場藝術學系（表演）畢業"
+    }
+  ],
+  "theatre": [
+    {
+      "recordId": "dagang-procession"
+    },
+    {
+      "recordId": "chiayi-plus-one"
+    },
+    {
+      "recordId": "night-walk"
+    },
+    {
+      "recordId": "iron-rose"
+    },
+    {
+      "recordId": "small-town-dance"
+    },
+    {
+      "recordId": "lohengrin"
+    },
+    {
+      "recordId": "queering-together"
+    },
+    {
+      "recordId": "burning-words"
+    },
+    {
+      "recordId": "night-banquet"
+    },
+    {
+      "recordId": "bedtime-story"
+    },
+    {
+      "recordId": "in-sync"
+    },
+    {
+      "recordId": "marriage-scenes"
+    },
+    {
+      "recordId": "one-more-chance"
+    },
+    {
+      "recordId": "rite-of-spring"
+    },
+    {
+      "recordId": "pulse"
+    },
+    {
+      "recordId": "mediating-object"
+    },
+    {
+      "recordId": "monster"
+    },
+    {
+      "recordId": "green-t"
+    },
+    {
+      "recordId": "floating-up-wall"
+    },
+    {
+      "recordId": "third-space"
+    },
+    {
+      "recordId": "us"
+    },
+    {
+      "recordId": "winding-island"
+    },
+    {
+      "recordId": "rootless-flower"
+    },
+    {
+      "recordId": "yerma"
+    },
+    {
+      "recordId": "way-home"
+    },
+    {
+      "recordId": "wild-grass"
+    },
+    {
+      "recordId": "bacchae"
+    },
+    {
+      "recordId": "little-clay-cart"
+    },
+    {
+      "recordId": "borealis"
+    },
+    {
+      "recordId": "carmina-burana"
+    }
+  ],
+  "teaching": [
+    {
+      "recordId": "autumn-movement"
+    },
+    {
+      "year": "2022",
+      "title": "藝大開門【雙向連結．迎向頂尖】",
+      "role": "計畫助理"
+    },
+    {
+      "year": "2021.02",
+      "title": "椅起計畫 Vol.5「點燃身體的想像—特爾佐布勒斯表演工作坊」",
+      "role": "助教"
+    },
+    {
+      "year": "2021",
+      "title": "《親野計畫二部曲》",
+      "team": "野我劇場",
+      "role": "計畫主持人／編創"
+    },
+    {
+      "year": "2020.02",
+      "title": "椅起計畫 Vol.2「點燃身體的想像—特爾佐布勒斯表演工作坊」",
+      "role": "助教"
+    },
+    {
+      "year": "2019",
+      "title": "《親野計畫首部曲》",
+      "team": "野我劇場",
+      "role": "計畫主持人／共同編創及演出"
+    },
+    {
+      "year": "2019",
+      "title": "北藝大「亞太當代舞蹈平台」",
+      "role": "計畫助理"
+    },
+    {
+      "recordId": "creative-movement"
+    },
+    {
+      "year": "2014.07",
+      "title": "教育部大專青年偏鄉藝術教育工作隊",
+      "role": "隊員"
+    }
+  ],
+  "film": [
+    {
+      "year": "2026.07",
+      "title": "115 年度國中小影視音暑期育樂營",
+      "team": "嘉義市政府教育處",
+      "role": "小隊輔"
+    },
+    {
+      "recordId": "documentary-theatre"
+    },
+    {
+      "recordId": "eight-counts"
+    },
+    {
+      "year": "2024",
+      "title": "113 年度個人品牌影音行銷研習營計畫進階班",
+      "team": "嘉義縣政府",
+      "notes": "團體第一名"
+    }
+  ],
+  "training": [
+    {
+      "year": "2026.01",
+      "title": "GYROKINESIS® Pre-training Course",
+      "team": "竹北／聆 Ling Listen Studio",
+      "status": "unconfirmed"
+    },
+    {
+      "year": "2026.05",
+      "title": "GYROKINESIS® Foundation Course",
+      "team": "臺東／臺灣身心教育學會",
+      "status": "unconfirmed"
+    },
+    {
+      "year": "2026.12",
+      "title": "GYROKINESIS® Supervised Apprentice Review Course",
+      "team": "臺東／臺灣身心教育學會",
+      "status": "planned"
+    },
+    {
+      "year": "2027.02",
+      "title": "GYROTONIC® Pre-training Course",
+      "team": "香港 Quarry Bay／O:RIN（原心身心整合工作室）",
+      "status": "planned"
+    }
+  ],
+  "other": [
+    {
+      "year": "2022.07–2023.08",
+      "title": "星苑 hoshi table、栩栩 omakase",
+      "role": "外場服務生"
+    },
+    {
+      "year": "2019.11–2020.11",
+      "title": "國立臺北藝術大學系辦",
+      "role": "工讀生"
+    },
+    {
+      "year": "2018–2023",
+      "title": "私人居家清潔服務"
+    },
+    {
+      "year": "2017–2018",
+      "title": "檸檬家事服務",
+      "role": "居家清潔人員"
+    },
+    {
+      "year": "2015.12–2016.06",
+      "title": "國立中山大學註冊組",
+      "role": "工讀生"
+    },
+    {
+      "year": "2014.11–2015.11",
+      "title": "高雄市文化局演藝場館",
+      "role": "前台服務人員（計時點工）"
+    }
+  ]
+}

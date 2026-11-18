@@ -7,7 +7,7 @@ Pages CMS 是 6UU 的瀏覽器編輯介面。首次連線完成後，日常編�
 1. 請由網站擁有者建立或選定 GitHub 儲存庫，並將這次的專案檔案放到 `main` 分支。儲存庫首頁應看得到 `src`、`public`、`package.json`、`.pages.yml` 與 `.github/workflows/pages.yml`。如果 GitHub 上還沒有任何檔案，可以使用 **Add file → Upload files**。拖入專案裡的檔案和資料夾，保留結構，確認 `.pages.yml` 在最外層。舊版備份 ZIP、`node_modules`、`.pnpm-store`、`.ssg`、`dist` 可留在本機。
 2. 若要公開網站，在儲存庫的 **Settings → Pages** 找到 **Build and deployment → Source**，選 **GitHub Actions**。按 **Actions → Deploy 6UU Archive to GitHub Pages → Run workflow**，選 `main` 執行首次發布。完成後 **Settings → Pages** 會顯示公開網址。GitHub Free 的 Pages 適用於公開儲存庫，請在上傳前確認檔案都適合公開。 [GitHub Pages 設定說明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 3. 開啟 [Pages CMS](https://app.pagescms.org/)，使用 GitHub 帳號登入。依畫面安裝 Pages CMS GitHub App。選擇網站儲存庫所在的帳號或組織，於 **Only select repositories** 選中 6UU 的儲存庫。
-4. 回到 Pages CMS，開啟 6UU 的儲存庫與 `main` 分支。如果畫面要求建立設定檔，先回 GitHub 確認 `.pages.yml` 已上傳到該分支的最外層。左側應有「首頁與個人介紹」、「創作作品」、「身體實踐」、「旅行紀事」、「生活手記」與「照片管理」。 [Pages CMS 首次啟用說明](https://pagescms.org/docs/quick-start/)
+4. 回到 Pages CMS，開啟 6UU 的儲存庫與 `main` 分支。如果畫面要求建立設定檔，先回 GitHub 確認 `.pages.yml` 已上傳到該分支的最外層。左側應有「首頁與個人介紹」、「完整經歷履歷 CV」、「創作作品」、「身體實踐」、「旅行紀事」、「生活手記」與「照片管理」。 [Pages CMS 首次啟用說明](https://pagescms.org/docs/quick-start/)
 
 ## 修改首頁文字
 
@@ -35,6 +35,17 @@ Pages CMS 是 6UU 的瀏覽器編輯介面。首次連線完成後，日常編�
 1. 在影片原頁按「分享」，複製 https 網址。
 2. 在作品或手記的「YouTube／Vimeo 影片網址」按新增，每列貼一支影片的網址。
 3. 儲存並發布後，從網站的詳細頁展開影片標題。若影片擁有者限制嵌入，可用「前往原始影片」開啟。
+
+## 編輯完整經歷履歷
+
+1. 在 Pages CMS 左側點「完整經歷履歷 CV」。如果剛更新網站設定，請先重新整理後臺。
+2. 選擇「學歷」、「劇場與跨域創作」、「教育與教學」、「影視相關」、「嬋柔培訓」或「其他工作經驗」。點開一列就能修改。按該分類的新增按鈕可加一筆，點列旁的移除按鈕可從履歷移除，用拖曳把手調整公開頁面的順序。
+3. 新增履歷專用項目時，填入作品、機構或課程名稱，再依已知資訊填年份、合作團隊、角色和補充說明。年份可填一段期間，例如 `2018–2023`。
+4. 已有創作作品或身體教學時，回原紀錄複製「內容代號（舊資料）」，代號空白時複製「網址短名」。在履歷加入一列並貼到「引用既有作品或教學的內容代號」。其餘欄位留空即可帶入原紀錄。若在履歷這一列填寫同名欄位，只會改變履歷顯示。從履歷移除引用後，原作品或教學頁仍可查看。
+5. 編輯「嬋柔培訓」時，依實際狀況選擇「規劃中」、「履歷載列培訓（結訓待確認）」、「已完成培訓」或「正式取得證照」。只有正式取得證照後才選最後一項。
+6. 按 **Save**，到 GitHub **Actions** 等待最新部署出現綠色勾號，再從公開網站的聯絡頁點「查看完整經歷履歷」。學歷也會同步顯示在關於頁，嬋柔培訓狀態則會同步顯示在身體實踐的嬋柔頁。
+
+作品或教學設為草稿時，其引用會暫時從公開履歷隱藏。若要刪除原紀錄，先移除履歷中對應的引用。若建置指出代號找不到或重複，回到後臺修正該列並重新儲存。
 
 ## 儲存、發布和預覽
 

@@ -82,5 +82,5 @@
 - 將 `status` 設為 `draft` 可隱藏頁面、列表、精選及 sitemap 項目。公開 GitHub 儲存庫仍會顯示原始 JSON，私密草稿請先在本機保管。
 - 在 `src/data/site.json` 的 `home` 修改首頁標題、副標、介紹與探索提示。標題會在第一個英文單字後換行。
 - `profile` 控制肖像、聯絡與合作資訊，`socials` 可用 `{"label":"Instagram","url":"https://www.instagram.com/已確認帳號/"}` 格式加入。
-- 培訓與資格更新在 `training`。標清預列課程、培訓參與、結訓與正式證照的實際狀態。
-- 專業履歷下載檔會在正式建置時重產。只更新履歷時也可執行 `pnpm run cv`。
+- 完整履歷與培訓資格統一在 `src/data/cv.json`，也可用 Pages CMS 的「完整經歷履歷 CV」編輯。既有作品與教學可用 `recordId` 引用。培訓狀態依事實選擇，操作方式見 [後臺使用指南](CMS_USER_GUIDE.md)。
+- HTML 履歷會在正式建置時重產。只需更新本機履歷頁時，可執行 `pnpm run cv`。

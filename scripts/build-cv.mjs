@@ -1,28 +1,19 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
+import { resolveCv } from '../src/cv.ts'
 
 const read = async (path) => JSON.parse(await readFile(new URL('../' + path, import.meta.url), 'utf8'))
-const [site, works, body] = await Promise.all([
+const [site, cv, works, body] = await Promise.all([
   read('src/data/site.json'),
+  read('src/data/cv.json'),
   read('src/content/works/records.json'),
   read('src/content/body/records.json'),
 ])
 const escape = (value) => value.replace(/[&<>"']/g, (char) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char])
-const line = (entry) => [entry.date ?? entry.year, entry.venue, entry.team, '《' + entry.title + '》', entry.role, entry.excerpt]
-  .filter(Boolean).join(' · ')
 const list = (title, items) => '<section><h2>' + escape(title) + '</h2><ul>' +
   items.map((item) => '<li>' + escape(item) + '</li>').join('\n') + '</ul></section>'
-const sort = (entries) => [...entries].sort((a, b) => (b.date ?? b.year ?? '').localeCompare(a.date ?? a.year ?? ''))
-const archiveWorks = sort(works.filter((entry) => entry.status === 'published'))
-const data = [
-  ['學歷', site.profile.education],
-  ['劇場演出及跨域創作', archiveWorks.filter((entry) => entry.category !== 'film').map(line)],
-  ['教育及培訓', [...body.filter((entry) => entry.status === 'published' && entry.category === 'teaching').map(line), ...site.cvOther['教育及培訓']].sort().reverse()],
-  ['影視經歷', [...archiveWorks.filter((entry) => entry.category === 'film').map(line), ...site.cvOther['影視其他經歷']].sort().reverse()],
-  ['嬋柔相關培訓', site.training.map((row) => row.join(' · '))],
-  ['其他工作經驗', site.cvOther['其他工作經驗']],
-]
+const sections = resolveCv(cv, [...works, ...body])
 const output = 'public/' + site.profile.cv
 await mkdir(dirname(output), { recursive: true })
 await writeFile(output, `<!doctype html>
@@ -43,6 +34,6 @@ li { margin-block: .4em; break-inside: avoid; }
 </head>
 <body>
 <header><h1>${escape(site.profile.name)} / ${escape(site.profile.english)}</h1><p>專業履歷 · <a href="mailto:${escape(site.profile.email)}">${escape(site.profile.email)}</a></p></header>
-<main>${data.map(([title, items]) => list(title, items)).join('\n')}</main>
+<main>${sections.map(({ title, rows }) => list(title, rows)).join('\n')}</main>
 </body>
 </html>\n`)

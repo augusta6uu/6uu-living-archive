@@ -2,7 +2,10 @@ import { Arrow, Layout, Mark, ResumeLink } from './components/layout'
 import { Constellation } from './components/constellation'
 import { Photo, Picture, safeUrl, Video } from './components/media'
 import { archivePath, entries, entryRoute, getRelated, isSection, pages, site, topics, type Entry, type Page, type Route, type Section } from './content'
+import cvData from './data/cv.json'
+import { formatCvRow, trainingStatusLabels, type CvData } from './cv'
 
+const cv: CvData = cvData as CvData
 const tones = ['blue', 'gold', 'purple'] as const
 function Artwork({ entry, tone = 0 }: { entry: Entry; tone?: number }) {
   return entry.coverImage
@@ -71,8 +74,10 @@ function About() {
       <div className="prose">
         <h2>創作與生活</h2>
         <p>{site.profile.statement}</p>
-        <h2>學習背景</h2>
-        <ul>{site.profile.education.map((line) => <li key={line}>{line}</li>)}</ul>
+        {!!cv.education?.length && <>
+          <h2>學習背景</h2>
+          <ul>{cv.education.map((row, index) => <li key={index}>{formatCvRow(row)}</li>)}</ul>
+        </>}
         <p>專業經歷涵蓋場館前台、偏鄉藝術教育、舞團行政、劇場與影像製作。藝文工作之外，也從事過餐飲外場及居家清潔。</p>
         <ResumeLink/>
       </div>
@@ -126,11 +131,13 @@ function Collection({ section, filter }: { section: Section; filter?: string }) 
   </div>
 }
 function Training() {
+  if (!cv.training?.length) return null
   return <section className="training">
     <h2>培訓紀錄</h2>
-    <p>履歷目前載列課程資訊。結訓與正式證照狀態待確認。</p>
-    <ol>{site.training.map(([date, title, place, state]) =>
-      <li key={date}><span>{date}</span><div><strong lang="en">{title}</strong><p>{place} · {state}</p></div></li>)}</ol>
+    <ol>{cv.training.map((row, index) =>
+      <li key={index}><span>{row.year}</span><div><strong>{row.title}</strong>
+        <p>{[row.venue, row.team, row.role, row.notes, trainingStatusLabels[row.status]].filter(Boolean).join(' · ')}</p>
+      </div></li>)}</ol>
   </section>
 }
 const missingText = {

@@ -41,5 +41,5 @@ export function Layout({ children, current }: { children: ReactNode; current?: P
   </>
 }
 export function ResumeLink() {
-  return <a className="text-link" download href={archivePath(site.profile.cv)}>下載完整經歷履歷（HTML） <Arrow down/></a>
+  return <a className="text-link" href={archivePath(site.profile.cv)}>查看完整經歷履歷 <Arrow/></a>
 }
